@@ -30,7 +30,7 @@
       <q-btn
         color="primary"
         label="Log in"
-        class="Sign-in-futton full-width q-mt-lg"
+        class="Sign-in-button full-width q-mt-lg"
       />
       <div class="flex row items-center justify-center q-mt-xl">
         <q-img
@@ -73,7 +73,7 @@ export default {
   height: 49px;
   width: 182px;
 }
-.Sign-in-futton {
+.Sign-in-button {
   height: 44px;
   border-radius: 5px;
   background-color: $instaBlue;
