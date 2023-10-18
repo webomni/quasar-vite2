@@ -1,10 +1,12 @@
 <template>
   <q-page class="flex">
-    <div class="full-width absolute-top q-mt-lg">
+    <!-- icones TopBAr -->
+    <div class="container-top full-width q-pt-lg">
       <TopBar />
       <q-separator class="full-width q-mt-sm" />
     </div>
 
+    <!-- Componente avatar -->
     <q-scroll-area horizontal :visible="false" class="q-scroll-area full-width">
       <div class="row no-wrap">
         <div class="full-width" v-for="item in 10" :key="item">
@@ -18,7 +20,11 @@
       </div>
     </q-scroll-area>
 
-    <div class="container-bottom full-width absolute-bottom q-pb-lg">
+    <!-- Componente posts -->
+    <Posts v-for="item in 10" :key="item" />
+
+    <!-- Componente BottomBar -->
+    <div class="container-bottom full-width q-pb-lg">
       <q-separator class="full-width q-mb-sm" />
       <BottomBar />
     </div>
@@ -28,18 +34,29 @@
 <script>
 import TopBar from "src/components/TopBar/Index.vue";
 import BottomBar from "src/components/BottomBar/Index.vue";
+import Posts from "src/components/Posts/Index.vue";
 export default {
   name: "MainPage",
   components: {
     TopBar,
     BottomBar,
+    Posts,
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.container-top {
+  z-index: 6000;
+  position: fixed;
+  top: 0;
+  background-color: $background-ligth;
+}
 .container-bottom {
-  background-color: #fafafa;
+  z-index: 6000;
+  position: fixed;
+  bottom: 0;
+  background-color: $background-ligth;
 }
 
 .q-scroll-area {
