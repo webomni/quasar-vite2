@@ -52,12 +52,6 @@ export default {
   top: 0;
   background-color: $background-ligth;
 }
-.container-bottom {
-  z-index: 6000;
-  position: fixed;
-  bottom: 0;
-  background-color: $background-ligth;
-}
 
 .q-scroll-area {
   height: 98px;
