@@ -1,13 +1,13 @@
 <template>
-  <q-page class="flex">
-    <div class="column q-px-md full-width">
+  <q-page class="flex column">
+    <div class="column q-pt-xl q-px-md full-width">
       <q-icon
         name="fas la-bars"
         color="black"
         size="31px"
         class="absolute-right q-ma-lg"
       />
-      <div style="background-color: red" class="full-width row justify-center">
+      <div class="full-width row justify-center">
         <q-icon name="fas fa-lock" color="black" size="11px" class="q-mr-xs" />
         <strong>Jacob_w</strong>
         <q-icon
@@ -18,10 +18,7 @@
         />
       </div>
       <!-- avatar -->
-      <div
-        style="background-color: blueviolet"
-        class="row items-center justify-around full-width"
-      >
+      <div class="row items-center justify-between full-width q-mt-lg">
         <q-avatar size="96px" class="avatar-Profile">
           <img class="avatar" src="https://cdn.quasar.dev/img/avatar.png" />
         </q-avatar>
@@ -39,7 +36,7 @@
         </div>
       </div>
 
-      <div class="column">
+      <div class="column q-mt-md">
         <strong>Jocob West</strong>
         <span> Digital goodies disigner @pixsellz</span>
         <span> Everything is designed. </span>
@@ -48,7 +45,7 @@
         flat
         dense
         color="white"
-        class="btn-edit full-width"
+        class="btn-edit full-width q-my-md"
         text-color="black"
         label="Edit Profile"
       />
@@ -69,19 +66,20 @@
         </div>
       </div>
     </div>
+    <q-separator class="q-mt-md" />
     <div class="full-width">
-      <q-tabs
-        v-model="tab"
-        class="text-teal"
-      >
-        <q-tab name="mails" icon="mail" label="Mails" />
-        <q-tab name="alarms" icon="alarm" label="Alarms" />
-        <q-tab name="movies" icon="movie" label="Movies" />
+      <q-tabs v-model="tab" class="text-teal" active-color="grey-8">
+        <q-tab name="grid">
+          <q-img src="src/assets/grid.svg" width="22px" />
+        </q-tab>
+        <q-tab name="profile">
+          <q-img src="src/assets/profile.svg" width="22px" />
+        </q-tab>
       </q-tabs>
-      <div class="row">
+      <div class="row q-mb-lg">
         <q-img
           :ratio="1"
-          v-for="item in 8"
+          v-for="item in 5"
           :key="item"
           class="cursor-pointer col-4"
           src="https://picsum.photos/500/300"
@@ -94,6 +92,11 @@
 <script>
 export default {
   name: "MyArea",
+  data() {
+    return {
+      tab: "grid",
+    };
+  },
 };
 </script>
 
