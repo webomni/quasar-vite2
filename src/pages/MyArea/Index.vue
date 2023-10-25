@@ -1,11 +1,16 @@
 <template>
   <q-page class="flex column">
-    <div class="column q-pt-xl q-px-md full-width">
+    <MenuDrawer :drawerRight="drawerRight" @close="drawerRight = false" />
+    <div
+      class="column q-pt-xl q-pb-md q-px-md full-width bg-grey-2"
+      :class="drawerRight && 'drawer-open'"
+    >
       <q-icon
+        @click="drawerRight = !drawerRight"
         name="fas la-bars"
         color="black"
         size="31px"
-        class="absolute-right q-ma-lg"
+        class="absolute-right q-ma-lg cursor-pointer"
       />
       <div class="full-width row justify-center">
         <q-icon name="fas fa-lock" color="black" size="11px" class="q-mr-xs" />
@@ -66,8 +71,8 @@
         </div>
       </div>
     </div>
-    <q-separator class="q-mt-md" />
-    <div class="full-width">
+    <q-separator />
+    <div class="full-width" :class="drawerRight && 'drawer-open'">
       <q-tabs v-model="tab" class="text-teal" active-color="grey-8">
         <q-tab name="grid">
           <q-img src="src/assets/grid.svg" width="22px" />
@@ -87,7 +92,10 @@
       </div>
     </div>
     <!-- Componente BottomBar -->
-    <div class="container-bottom full-width q-pb-lg">
+    <div
+      class="full-width q-pb-lg"
+      :class="drawerRight ? 'bottom-menu-draer-open' : 'container-bottom'"
+    >
       <q-separator class="full-width q-mb-sm" />
       <BottomBar />
     </div>
@@ -96,15 +104,18 @@
 
 <script>
 import BottomBar from "src/components/BottomBar/Index.vue";
+import MenuDrawer from "src/components/MenuDrawer/Index.vue";
 export default {
   name: "MyArea",
   data() {
     return {
       tab: "grid",
+      drawerRight: false,
     };
   },
   components: {
     BottomBar,
+    MenuDrawer,
   },
 };
 </script>
@@ -153,5 +164,17 @@ export default {
   text-transform: none;
   padding: 5px;
   border: solid 1px rgba(60, 60, 67, 0.18);
+}
+.drawer-open {
+  position: relative;
+  right: 70%;
+}
+.bottom-menu-draer-open {
+  position: absolute;
+  right: 70%;
+  bottom: 0px;
+}
+.menu-drawer {
+  right: 70%;
 }
 </style>
