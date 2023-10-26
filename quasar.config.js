@@ -10,7 +10,7 @@
 
 const { configure } = require("quasar/wrappers");
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function (ctx) {
   return {
     eslint: {
       // fix: true,
@@ -62,7 +62,9 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: {
+        API: ctx.dev ? "http://localhost:3000" : "http://localhost:3000",
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
